@@ -1,0 +1,38 @@
+:root {
+  --color-secondary: #04d361;
+  --color-secondary-dark: #04bf58;
+  --color-primary: #8257e5;
+  --color-primary-dark: #774dd6;
+  --color-primary-darker: #6842c2;
+  --color-input-background: #f8f8fc;
+  --color-button-text: #ffffff;
+  --color-text-base: #ffffff;
+
+  /* Tamanho da fonte padrão 16px - 100% - 1rem */
+  font-size: 60%;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input,
+button,
+textarea {
+  font: 500 1.6rem Poppins;
+  /* color: var(--color-text-base); */
+}
+
+#container {
+  width: 90vw;
+  max-width: 700px;
+}
