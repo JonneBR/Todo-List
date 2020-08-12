@@ -31,10 +31,14 @@
   margin: 3.2rem auto;
 }
 
-.page-header .header-content strong {
+.header-strong {
   font: 700 3.2rem Poppins;
   line-height: 3.2rem;
   color: var(--color-text-base);
+  margin: auto;
+  /* width: 100%;
+  display: flex;
+  align-items: center; */
 }
 
 #form-container {
@@ -51,11 +55,15 @@
 
 #form-container #title-input {
   height: 3.2rem;
+  width: 100%;
+  border: none;
+  font: 700 2.5rem Poppins;
 }
 
 #form-container #subject-label {
   font-size: 2.5rem;
   color: var(--color-text-base);
+  display: flex;
 }
 
 #form-container #subject-input {
@@ -63,9 +71,22 @@
   display: flex;
   flex-direction: column; */
   /* margin-top: 3.2rem; */
+
   width: 100%;
   display: flex;
   height: 3.2rem;
   align-items: center;
+  border: none;
   /* border: 1px solid red; */
+}
+
+.btn-add {
+  background: var(--color-secondary-dark);
+  color: var(--color-text-base);
+  font: 700 2.2rem Poppins;
+  border: none;
+  width: 100%;
+  margin-top: 2.5rem;
+  /* display: flex;
+  align-items: center; */
 }
