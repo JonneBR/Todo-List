@@ -67,11 +67,6 @@
 }
 
 #form-container #subject-input {
-  /* margin-top: 3.2rem;
-  display: flex;
-  flex-direction: column; */
-  /* margin-top: 3.2rem; */
-
   width: 100%;
   display: flex;
   height: 3.2rem;
@@ -87,6 +82,15 @@
   border: none;
   width: 100%;
   margin-top: 2.5rem;
-  /* display: flex;
-  align-items: center; */
+  transition: opacity 0.2s;
+  cursor: pointer;
 }
+
+.btn-add:hover {
+  opacity: 0.9;
+}
+
+/* .btn-add:hover {
+  background: var(--color-secondary-dark);
+  color: white;
+} */
