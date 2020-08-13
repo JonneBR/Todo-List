@@ -5,9 +5,10 @@
 
 .page-header {
   background: var(--color-primary);
-
   display: flex;
   flex-direction: column;
+  /* margin: 0;
+  padding: 0; */
 }
 
 .page-header .top-bar-container {
@@ -142,7 +143,8 @@
   opacity: 0.6;
 }
 
-/* .btn-add:hover {
-  background: var(--color-secondary-dark);
-  color: white;
-} */
+@media (min-width: 700px) {
+  #page-list #container {
+    max-width: 100vw;
+  }
+}
