@@ -26,7 +26,11 @@ function showTodos(list, divId) {
       '</strong>' +
       '<p>' +
       list[i].subject +
-      '</p>';
+      '</p>' +
+      '<button class="update-todo" rel="' +
+      '" class="update-todo">UPDATE</button>' +
+      '<button class="delete-todo" rel="' +
+      '" class="delete-todo">DELETE</button>';
     console.log('auxVALUE:', auxHtml);
   }
   document.getElementById(divId).innerHTML = teste;
@@ -38,21 +42,34 @@ function showTodos(list, divId) {
 var buttonElement = document.querySelector('.header-content .btn-add');
 
 // console.log(buttonElement);
-
+// var room = 0;
 function todoPrint() {
   var titleValue = document.querySelector('.header-content #title-input').value;
   var subjectValue = document.querySelector('.header-content #subject-input')
     .value;
 
+  // room++;
+
+  var parentDiv = document.getElementById('todo-item');
+  var childDiv = document.createElement('div');
+
+  console.log('working?');
+
+  childDiv.setAttribute('class', 'item-container');
+  childDiv.innerHTML =
+    '' + '<strong>' + titleValue + '<strong>' + '<p>' + subjectValue + '</p>';
+  parentDiv.appendChild(childDiv);
+
   //   var teste = document.getElementById('teste');
 
   //   console.log(inputTitleElement.value);
   //   console.log(inputSubjectElement.value);
-  var todos = new todoInformation(titleValue, subjectValue);
 
-  console.log('teste: ', todos);
-  addTodos(todos, listTodos);
-  showTodos(listTodos, 'item-container');
+  // var todos = new todoInformation(titleValue, subjectValue);
+
+  // console.log('teste: ', todos);
+  // addTodos(todos, listTodos);
+  // showTodos(listTodos, 'item-container');
 }
 
 buttonElement.onclick = todoPrint;
