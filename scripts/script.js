@@ -42,22 +42,37 @@ function showTodos(list, divId) {
 var buttonElement = document.querySelector('.header-content .btn-add');
 
 // console.log(buttonElement);
-// var room = 0;
+var room = 0;
 function todoPrint() {
   var titleValue = document.querySelector('.header-content #title-input').value;
   var subjectValue = document.querySelector('.header-content #subject-input')
     .value;
 
-  // room++;
+  room++;
 
   var parentDiv = document.getElementById('todo-item');
   var childDiv = document.createElement('div');
+  // var buttonUpdate = document.createElement('button');
+
+  // buttonUpdate.setAttribute('class', 'update-todo');
+  // var buttonDelete = document.createElement('button');
 
   console.log('working?');
 
+  childDiv.setAttribute('id', 'item-container' + room);
   childDiv.setAttribute('class', 'item-container');
   childDiv.innerHTML =
-    '' + '<strong>' + titleValue + '<strong>' + '<p>' + subjectValue + '</p>';
+    '' +
+    '<strong>' +
+    titleValue +
+    '</strong>' +
+    '<p>' +
+    subjectValue +
+    '</p>' +
+    '<button class="update-todo" rel="' +
+    '" class="update-todo">UPDATE</button>' +
+    '<button class="delete-todo" rel="' +
+    '" class="delete-todo">DELETE</button>';
   parentDiv.appendChild(childDiv);
 
   //   var teste = document.getElementById('teste');
