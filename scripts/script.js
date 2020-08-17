@@ -7,16 +7,16 @@ var listTodos = [];
 
 var position = '';
 
-function addTodos(todos, listTodos) {
-  listTodos.push(todos);
-  console.log('?', listTodos);
+function addTodos(todoList, listTodos) {
+  listTodos.push(todoList);
+  console.log('?>', listTodos);
 }
 
 function updateInputs(eventClick) {
   console.log('funcionou');
   position = eventClick.getAttribute('rel');
   teste = document.querySelector('#item-container1 strong').textContent;
-  // document.get('cpf').value = listaClientes[posicao].cpf;
+
   console.log('funcionou', position.value);
   console.log('strong', teste);
 }
@@ -37,11 +37,13 @@ console.log(buttonElement);
 var room = 0;
 
 function todoPrint() {
-  var todos = JSON.parse(localStorage.getItem('list_todos')) || [];
-  console.log('todos', todos);
   var titleValue = document.querySelector('.header-content #title-input').value;
   var subjectValue = document.querySelector('.header-content #subject-input')
     .value;
+
+  var todoList = new todoInformation(titleValue, subjectValue);
+
+  addTodos(todoList, listTodos);
 
   room++;
 
