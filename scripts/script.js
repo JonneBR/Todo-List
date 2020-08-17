@@ -12,6 +12,16 @@ function addTodos(todos, listTodos) {
   console.log('?', listTodos);
 }
 
+function clearInputs() {
+  var titleValue = (document.querySelector(
+    '.header-content #title-input'
+  ).value = '');
+
+  var subjectValue = (document.querySelector(
+    '.header-content #subject-input'
+  ).value = '');
+}
+
 var buttonElement = document.querySelector('.header-content .btn-add');
 
 var room = 0;
@@ -44,6 +54,8 @@ function todoPrint() {
     '<button class="delete-todo" rel="' +
     '" class="delete-todo">DELETE</button>';
   parentDiv.appendChild(childDiv);
+
+  clearInputs();
 }
 
 buttonElement.onclick = todoPrint;
