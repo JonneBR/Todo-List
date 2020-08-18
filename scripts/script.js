@@ -13,12 +13,16 @@ function addTodos(todoList, listTodos) {
 }
 
 function updateInputs(eventClick) {
-  console.log('funcionou');
-  position = eventClick.getAttribute('rel');
-  teste = document.querySelector('#item-container1 strong').textContent;
+  var titleInput = document.querySelector('.header-content #title-input');
+  var subjectInput = document.querySelector('.header-content #subject-input');
+  // var todoTitle = document.querySelector('#item-container1 strong').textContent;
+  var indexPosition = eventClick.getAttribute('rel');
+  titleInput.value = listTodos[indexPosition].title;
+  subjectInput.value = listTodos[indexPosition].subject;
 
-  console.log('funcionou', position.value);
-  console.log('strong', teste);
+  console.log('index', indexPosition);
+
+  position = eventClick.getAttribute('rel');
 }
 
 function clearInputs() {
@@ -34,7 +38,7 @@ function clearInputs() {
 var buttonElement = document.querySelector('.header-content .btn-add');
 console.log(buttonElement);
 
-var room = 0;
+var room = -1;
 
 function todoPrint() {
   var titleValue = document.querySelector('.header-content #title-input').value;
