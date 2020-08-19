@@ -37,9 +37,11 @@ function updateTodoNewValues() {
   console.log('2', (listTodos[position].subject = subjectValue));
 
   var parentDiv = document.getElementById('todo-item');
+  var strongElement = document.querySelector('#item-container' + position);
+  console.log('3', strongElement);
 
   for (var i = 0; i < listTodos.length; i++) {
-    parentDiv.innerHTML =
+    strongElement.innerHTML =
       '' +
       '<strong>' +
       listTodos[position].title +
@@ -56,6 +58,7 @@ function updateTodoNewValues() {
     // console.log('check', checkPoint);
     clearInputs();
   }
+  checkPoint = '';
 
   console.log('ORIGINAL', listTodos);
 }
