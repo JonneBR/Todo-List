@@ -52,30 +52,34 @@ function todoPrint() {
   room++;
 
   var parentDiv = document.getElementById('todo-item');
+  console.log('Parent Element:', parentDiv);
   var childDiv = document.createElement('div');
-
-  console.log('working?');
 
   childDiv.setAttribute('id', 'item-container' + room);
   childDiv.setAttribute('class', 'item-container');
-  // for(var room = 0; room < list)
-  childDiv.innerHTML =
-    '' +
-    '<strong>' +
-    titleValue +
-    '</strong>' +
-    '<p>' +
-    subjectValue +
-    '</p>' +
-    '<button id="update-todo" rel="' +
-    room +
-    '" class="update-todo">UPDATE</button>' +
-    '<button class="delete-todo" rel="' +
-    '" class="delete-todo">DELETE</button>';
-  parentDiv.appendChild(childDiv);
 
-  clearInputs();
-  // updateButtonOnClick();
+  for (var i = 0; i < listTodos.length; i++) {
+    childDiv.innerHTML =
+      '' +
+      '<strong>' +
+      listTodos[i].title +
+      '</strong>' +
+      '<p>' +
+      listTodos[i].subject +
+      '</p>' +
+      '<button id="update-todo" rel="' +
+      room +
+      '" class="update-todo">UPDATE</button>' +
+      '<button class="delete-todo" rel="' +
+      '" class="delete-todo">DELETE</button>';
+
+    parentDiv.appendChild(childDiv);
+    var strongText = document.querySelector('#item-container0 strong')
+      .textContent;
+    console.log('strongText', strongText);
+
+    clearInputs();
+  }
 }
 
 document.onclick = function (event) {
