@@ -12,18 +12,23 @@ function addTodos(todoList, listTodos) {
   console.log('?>', listTodos);
 }
 
+function deleteTodo(deleteElementPosition) {
+  var div = document.querySelector('#item-container' + deleteElementPosition);
+  div.parentNode.removeChild(div);
+  console.log('DELETADO', div);
+}
+
 function updateInputs(eventClick) {
   var titleInput = document.querySelector('.header-content #title-input');
   var subjectInput = document.querySelector('.header-content #subject-input');
-  // var todoTitle = document.querySelector('#item-container1 strong').textContent;
-  var indexPosition = eventClick.getAttribute('rel');
-  titleInput.value = listTodos[indexPosition].title;
-  subjectInput.value = listTodos[indexPosition].subject;
+  buttonUpdateIndex = eventClick.getAttribute('rel');
+  titleInput.value = listTodos[buttonUpdateIndex].title;
+  subjectInput.value = listTodos[buttonUpdateIndex].subject;
 
-  console.log('index', indexPosition);
+  console.log('index', buttonUpdateIndex);
 
-  position = eventClick.getAttribute('rel');
-  console.log('PSOICAO', position);
+  // position = eventClick.getAttribute('rel');
+  // console.log('PSOICAO', position);
 }
 
 function updateTodoNewValues() {
@@ -31,36 +36,34 @@ function updateTodoNewValues() {
   var subjectValue = document.querySelector('.header-content #subject-input')
     .value;
 
-  teste1 = listTodos[position].title = titleValue;
-  console.log('1', (listTodos[position].title = titleValue));
-  teste2 = listTodos[position].subject = subjectValue;
-  console.log('2', (listTodos[position].subject = subjectValue));
+  listTodos[buttonUpdateIndex].title = titleValue;
+  listTodos[buttonUpdateIndex].subject = subjectValue;
 
   var parentDiv = document.getElementById('todo-item');
-  var strongElement = document.querySelector('#item-container' + position);
-  console.log('3', strongElement);
+  var div = document.querySelector('#item-container' + buttonUpdateIndex);
+  console.log('3', div);
+  console.log('LENGTH', listTodos.length);
 
-  for (var i = 0; i < listTodos.length; i++) {
-    strongElement.innerHTML =
-      '' +
-      '<strong>' +
-      listTodos[position].title +
-      '</strong>' +
-      '<p>' +
-      listTodos[position].subject +
-      '</p>' +
-      '<button id="update-todo" rel="' +
-      position +
-      '" class="update-todo">UPDATE</button>' +
-      '<button class="delete-todo" rel="' +
-      '" class="delete-todo">DELETE</button>';
-    // console.log('list:', listTodos[room].title);
-    // console.log('check', checkPoint);
-    clearInputs();
-  }
+  // for (var i = 0; i < listTodos.length; i++) {
+  div.innerHTML =
+    '' +
+    '<strong>' +
+    listTodos[buttonUpdateIndex].title +
+    '</strong>' +
+    '<p>' +
+    listTodos[buttonUpdateIndex].subject +
+    '</p>' +
+    '<button id="update-todo" rel="' +
+    buttonUpdateIndex +
+    '" class="update-todo">UPDATE</button>' +
+    '<button id="delete-todo" rel="' +
+    buttonUpdateIndex +
+    '" class="delete-todo">DELETE</button>';
+  // console.log('list:', listTodos[room].title);
+  // console.log('check', checkPoint);
+  clearInputs();
+  // }
   checkPoint = '';
-
-  console.log('ORIGINAL', listTodos);
 }
 
 function clearInputs() {
@@ -112,7 +115,8 @@ function todoPrint() {
         '<button id="update-todo" rel="' +
         room +
         '" class="update-todo">UPDATE</button>' +
-        '<button class="delete-todo" rel="' +
+        '<button id="delete-todo" rel="' +
+        room +
         '" class="delete-todo">DELETE</button>';
 
       parentDiv.appendChild(childDiv);
@@ -131,8 +135,13 @@ document.onclick = function (event) {
       todoPrint();
       break;
     case 'update-todo':
-      updateInputs(eventClick, room);
+      updateInputs(eventClick);
       checkPoint = 1;
+      break;
+    case 'delete-todo':
+      deleteElementPosition = eventClick.getAttribute('rel');
+      console.log('DELETEELEMENT', deleteElementPosition);
+      deleteTodo(deleteElementPosition);
   }
   // buttonElement.onclick = todoPrint;
 };
